@@ -19,17 +19,7 @@ jobs:
       -   run: |
             pip install -r requirements.txt
             pytest test_app.py
-  coverage:
-    name: Installing Coverage
-    runs-on: ubuntu-latest
-    steps:
-      - name: Code Checkout for coverage
-        uses: actions/checkout@v6
-      
-      - name: Installing Coverage
-        run: |
-          python3 -m pip install coverage
-          coverage --version
-          coverage run -m pytest test_app.py
-          coverage report 
-          coverage html
+            coverage --version
+            coverage run -m pytest test_app.py
+            coverage report 
+            coverage html
