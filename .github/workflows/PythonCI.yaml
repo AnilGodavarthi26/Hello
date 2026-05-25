@@ -1,0 +1,21 @@
+name: Python CI
+run-name: Python CI Pipeline
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    name: Build and test python App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v6
+
+      - name: Installing python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13' 
+          cache: pip
+      -   run: |
+            pip install -r requirements.txt
+            pytest test_app.py
